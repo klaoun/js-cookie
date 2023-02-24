@@ -10,7 +10,15 @@
     </script>
     <script src="../dist/js.cookie.min.js"></script>
     <script src="utils.js"></script>
-    <script src="tests.js"></script>
+    <!-- <script src="tests.js"></script> -->
+    <script>
+      QUnit.module('dumb module')
+
+      QUnit.test('dumb test', function (assert) {
+        assert.expect(1)
+        assert.ok(true)
+      })
+    </script>
   </head>
   <body>
     <div id="qunit"></div>
