@@ -2,6 +2,10 @@
 /* eslint-disable no-var */
 
 ;(function () {
+  QUnit.on('runEnd', function (runEnd) {
+    window.__runEnd__ = runEnd
+  })
+
   window.lifecycle = {
     afterEach: function () {
       // Remove the cookies created using js-cookie default attributes
