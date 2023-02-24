@@ -8,11 +8,12 @@ const browsers = [
       browserVersion: '11.0',
       projectName: process.env.BROWSERSTACK_PROJECT_NAME,
       buildName: process.env.BROWSERSTACK_BUILD_NAME,
+      userName: process.env.BROWSERSTACK_USERNAME,
+      accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+      localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
       // sessionName: 'Test',
       local: 'true',
-      seleniumVersion: '4.8.0', // Match selenium-webdriver in package.json
-      userName: process.env.BROWSERSTACK_USERNAME,
-      accessKey: process.env.BROWSERSTACK_ACCESS_KEY
+      seleniumVersion: '4.8.0' // Match selenium-webdriver in package.json
     },
     browserName: 'IE'
   }
