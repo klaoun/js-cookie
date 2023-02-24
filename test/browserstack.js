@@ -41,8 +41,6 @@ const browsers = [
 ]
 
 async function runTest (browser) {
-  console.log(`Running QUnit test suite in ${browser.browserName}`)
-
   const driver = new webdriver.Builder()
     .usingServer('http://hub.browserstack.com/wd/hub')
     .withCapabilities({ ...browser })
@@ -51,6 +49,7 @@ async function runTest (browser) {
   let fail = false
   try {
     await driver.get('http://127.0.0.1:9998')
+    await driver.sleep(10000)
     const runEnd = await driver.executeScript('return window.__runEnd__')
     console.log(`Passed: ${runEnd.passed}`)
     console.log(`Failed: ${runEnd.failed}`)
@@ -75,6 +74,7 @@ async function runTest (browser) {
 }
 
 for (const browser of browsers) {
+  console.log(`Running QUnit test suite in ${browser.browserName}`)
   // TODO: exit with 1 when there are test failures... process.exit(fail ? 1 : 0)
   runTest(browser)
 }
