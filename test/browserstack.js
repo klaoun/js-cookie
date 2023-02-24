@@ -34,6 +34,7 @@ const browsers = [
       os: 'Windows',
       osVersion: '10',
       browserVersion: '11.0',
+      networkLogs: 'true',
       ...browserstackOptions
     },
     browserName: 'IE'
