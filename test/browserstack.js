@@ -1,15 +1,13 @@
 const webdriver = require('selenium-webdriver')
 
 const browserstackOptions = {
-  'bstack:options': {
-    projectName: process.env.BROWSERSTACK_PROJECT_NAME,
-    buildName: process.env.BROWSERSTACK_BUILD_NAME,
-    userName: process.env.BROWSERSTACK_USERNAME,
-    accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
-    localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
-    local: 'true',
-    seleniumVersion: '4.8.0' // Match selenium-webdriver in package.json
-  }
+  projectName: process.env.BROWSERSTACK_PROJECT_NAME,
+  buildName: process.env.BROWSERSTACK_BUILD_NAME,
+  userName: process.env.BROWSERSTACK_USERNAME,
+  accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+  localIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
+  local: 'true',
+  seleniumVersion: '4.8.0' // Match selenium-webdriver in package.json
 }
 
 const browsers = [
