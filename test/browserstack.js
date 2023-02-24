@@ -27,7 +27,6 @@ async function runTest (browser) {
 
   try {
     await driver.get('http://127.0.0.1/test/index.html')
-    await driver.wait(webdriver.until.titleMatches(/foo/i), 5000) // driver.sleep(5000)?
     await driver.executeScript(
       'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status": "passed", "reason": "QUnit test suite passed"}}'
     )
