@@ -42,7 +42,7 @@ const browsers = [
 
 async function runTest (browser) {
   const driver = new webdriver.Builder()
-    .usingServer('http://hub-cloud.browserstack.com/wd/hub')
+    .usingServer('http://hub.browserstack.com/wd/hub')
     .withCapabilities({ ...browser })
     .build()
 
