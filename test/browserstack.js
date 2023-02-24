@@ -75,6 +75,8 @@ async function runTest (browser) {
 
 for (const browser of browsers) {
   console.log(`Running QUnit test suite in ${browser.browserName}`)
-  // TODO: exit with 1 when there are test failures... process.exit(fail ? 1 : 0)
   runTest(browser)
 }
+
+// TODO: exit with 1 only when there are test failures...
+process.exit(1)
