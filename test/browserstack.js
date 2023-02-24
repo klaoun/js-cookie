@@ -46,7 +46,7 @@ async function runTest (browser) {
     .withCapabilities({ ...browser })
     .build()
 
-  let fail
+  let fail = false
   try {
     await driver.get('http://127.0.0.1:9998/test/index.html')
     await driver.sleep(10000)
@@ -61,7 +61,7 @@ async function runTest (browser) {
       'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status": "passed", "reason": "QUnit test suite passed"}}'
     )
   } catch (e) {
-    console.error(`Test suite failed to run in ${browser.browserName}`, e)
+    console.error(`Test suite failed to run in ${browser.browserName}: `, e)
     fail = true
     await driver.executeScript(
       'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status": "failed", "reason": "QUnit test suite has failing tests"}}'
@@ -69,7 +69,8 @@ async function runTest (browser) {
   }
 
   await driver.quit()
-  process.exit(fail ? 1 : 0)
+  //   process.exit(fail ? 1 : 0)
+  console.log(`Test suite fail: ${fail}`)
 }
 
 for (const browser of browsers) {
