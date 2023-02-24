@@ -72,7 +72,9 @@ async function runTest (browser) {
   process.exit(fail ? 1 : 0)
 }
 
-for (const browser of browsers) {
-  console.log(`Running QUnit test suite in ${browser.browserName}`)
-  runTest(browser)
-}
+;(async () => {
+  for (const browser of browsers) {
+    console.log(`Running QUnit test suite in ${browser.browserName}`)
+    await runTest(browser)
+  }
+})()
