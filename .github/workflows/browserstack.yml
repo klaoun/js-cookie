@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  e2e-test:
+  test:
     runs-on: ubuntu-latest
     # Skip pull requests!
     if: ${{ ! startsWith(github.event_name, 'pull_request') }}
