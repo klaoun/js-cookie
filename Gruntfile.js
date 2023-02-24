@@ -58,11 +58,7 @@ const config = {
     'build-qunit': {
       options: {
         port: 9998,
-        base: ['.', 'test'],
-        middleware: function (connect, options, middlewares) {
-          middlewares.unshift(encodingMiddleware)
-          return middlewares
-        }
+        base: ['.', 'test']
       }
     },
     tests: {
