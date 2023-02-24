@@ -84,7 +84,7 @@ const config = {
     lint: 'npx standard',
     format:
       'npx prettier -l --write --single-quote --no-semi "**/*.{html,js,json,md,mjs,yml}" && npx eslint "**/*.{html,md}" --fix && npx standard --fix',
-    'browserstack-runner': 'node_modules/.bin/browserstack-runner --verbose'
+    browserstack: 'node test/browserstack.js'
   }
 }
 
@@ -105,7 +105,8 @@ module.exports = function (grunt) {
   ])
   grunt.registerTask('browserstack', [
     'exec:rollup',
-    'exec:browserstack-runner'
+    'connect:build-qunit',
+    'exec:browserstack'
   ])
   grunt.registerTask('dev', ['exec:format', 'test', 'compare_size'])
   grunt.registerTask('default', 'dev')
